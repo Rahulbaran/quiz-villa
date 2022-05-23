@@ -1,2 +1,3 @@
 # quiz-villa
-Quiz app created using vanilla javascript &amp; bundled using vite
+
+A Quiz application created using Vanilla JavaScript &amp; bundled using vite.
