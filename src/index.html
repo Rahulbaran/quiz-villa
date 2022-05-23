@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Rahul kumar" />
+    <meta name="contact" content="rahulkumar@gmail.com" />
+    <meta name="keywords" content="quiz, quiz-app, science" />
+    <meta name="description" content="Quiz Villa is a quiz application" />
+
+    <meta name="robots" content="index, follow" />
+
+    <title>Quiz Villa</title>
+
+    <script src="./js/main.js" defer type="module"></script>
+  </head>
+  <body>
+    <main class="user--form__container container">
+      <div class="app--heading">
+        <h1>Quiz Villa</h1>
+        <p>Test Your General Knowledge</p>
+      </div>
+
+      <!-- * ------------ Form to get User Information ------------- * -->
+      <form class="user__form" autocomplete="off" spellcheck="false">
+        <div class="form__group">
+          <label for="fullname">Fullname</label>
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            required
+            placeholder="enter your name"
+          />
+        </div>
+
+        <div class="form__group">
+          <label for="questions__quantity">Total Questions</label>
+          <select name="questions" id="questions__quantity">
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+          </select>
+        </div>
+
+        <div class="form__group">
+          <label for="difficulty__level">Difficulty</label>
+          <select name="difficulty" id="difficulty__level">
+            <option value="easy">easy</option>
+            <option value="medium">medium</option>
+            <option value="hard">hard</option>
+          </select>
+        </div>
+
+        <button type="submit">Start Quiz</button>
+      </form>
+
+      <button class="instructions__show--btn" title="Check Instructions">
+        Instructions
+      </button>
+    </main>
+
+    <!-- * ---------------- Quiz Instructions ---------------- * -->
+    <section class="instructions--wrapper">
+      <div class="instructions__list">
+        <button class="instructions__hide--btn">&#x2718;</button>
+        <h2>Instructions*</h2>
+        <p>1. Fill the form to start the quiz.</p>
+        <p>
+          2. There will be multiple choice questions wtth each question having 4
+          options.
+        </p>
+        <p>
+          3. You will have to complete the quiz in the provided time interval.
+        </p>
+        <p>4. Final result will be shown after completion of the quiz.</p>
+
+        <h4>Good Luck 🤞🏼</h4>
+      </div>
+      <div class="instructions__bg--layer"></div>
+    </section>
+
+    <!-- * ------------------- Questions Container ------------------- * -->
+    <section class="questions--container container">
+      <div class="quiz__heading">
+        <p>👋 <span class="username">Rahul Kumar</span></p>
+        <p>Total Questions- <span class="total__questions">25</span></p>
+      </div>
+
+      <div class="question__wrapper">
+        <p class="question">
+          <span class="question__no">1.</span>
+          <span class="question__label"
+            >What is JavaScript and why is it important? please describe.</span
+          >
+        </p>
+
+        <div class="options">
+          <div class="option__group">
+            <input type="radio" name="option" id="option-1" />
+            <label for="option-1">a Computer</label>
+          </div>
+
+          <div class="option__group">
+            <input type="radio" name="option" id="option-2" />
+            <label for="option-2">an Animal</label>
+          </div>
+
+          <div class="option__group">
+            <input type="radio" name="option" id="option-3" />
+            <label for="option-3">an Famous</label>
+          </div>
+
+          <div class="option__group">
+            <input type="radio" name="option" id="option-4" />
+            <label for="option-4">an Fan</label>
+          </div>
+        </div>
+
+        <button class="next__btn btn">Next Question</button>
+      </div>
+
+      <div class="timer__wrapper">
+        <p>
+          Total time remaining -
+          <span class="minutes"></span>
+          :
+          <span class="seconds"></span>
+          min
+        </p>
+      </div>
+    </section>
+
+    <!-- * ----------------- Score Container ----------------- * -->
+    <section class="score--container">
+      <h2 class="score__heading">
+        Total Score -
+        <span class="user__score">10</span>/<span class="quiz__score">20</span>
+      </h2>
+
+      <div class="user__score--details"></div>
+
+      <button class="restart__btn">Restart Quiz</button>
+    </section>
+  </body>
+</html>

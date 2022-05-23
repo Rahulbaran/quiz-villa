@@ -1,0 +1,42 @@
+$red-color: red;
+$white-color: white;
+$black-color: black;
+$green-color: green;
+$yellow-color: yellow;
+$blue-color: blue;
+$cyan-color: cyan;
+
+$base-font-size: 1rem;
+$base-padding: 0.5rem;
+$base-margin: 0.5rem;
+$base-border-radius: 20px;
+$base-lh: 1.35;
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "semi": 600,
+  "bold": 700
+);
+
+@mixin flex(
+  $just: false,
+  $align: false,
+  $dir: false,
+  $gap: false,
+  $wrap: wrap
+) {
+  display: flex;
+  flex-wrap: $wrap;
+  @if $just {
+    justify-content: $just;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $dir {
+    flex-direction: $dir;
+  }
+  @if $gap {
+    gap: $gap;
+  }
+}

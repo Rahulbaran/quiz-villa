@@ -1,0 +1,338 @@
+@import "Variables.scss";
+@import "Base.scss";
+
+body {
+  min-block-size: 100vh;
+  background-image: linear-gradient(
+      to top left,
+      transparentize($blue-color, 0.4),
+      transparentize($red-color, 0.4)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      lighten(desaturate($blue-color, 20%), 40%) 0 10px,
+      lighten($red-color, 40%) 10px 20px,
+      lighten(desaturate($blue-color, 70%), 40%) 20px 30px
+    );
+  background-attachment: fixed;
+  background-color: lighten($black-color, 60%);
+  font: {
+    weight: map-get($font-weights, regular);
+    size: $base-font-size;
+    family: var(--font-stack-heebo);
+  }
+  line-height: $base-lh;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  block-size: 9px;
+  inline-size: 9px;
+
+  &-track {
+    background-color: $white-color;
+    box-shadow: 2px 0 5px transparentize($black-color, 0.8) inset;
+  }
+
+  &-thumb {
+    background-color: darken(desaturate($blue-color, 35%), 15%);
+    border-radius: $base-border-radius * 0.1;
+
+    &:hover {
+      background-color: darken(desaturate($blue-color, 35%), 25%);
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: $base-lh * 0.75;
+}
+
+button {
+  margin-block-start: $base-margin;
+  background-color: lighten(desaturate($red-color, 20%), 10%);
+  color: $white-color;
+  border: none;
+  font-family: var(--font-stack-poppins);
+  font-size: inherit;
+  padding: $base-padding * 1.35 $base-padding * 2;
+  border-radius: $base-border-radius * 0.2;
+  transition: background-color 300ms ease-in;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(desaturate($blue-color, 25%), 35%);
+    transition: background-color 300ms ease-out;
+  }
+}
+
+.container {
+  block-size: 100vh;
+  @include flex(space-between, center, $dir: column);
+}
+
+// * -------------- USER FORM CONTAINER STYLING -------------- * //
+.user--form__container {
+  .app--heading {
+    background-color: darken(desaturate($blue-color, 25%), 35%);
+    align-self: stretch;
+    padding: $base-padding * 2;
+    text-align: center;
+    box-shadow: 0 2px 1px transparentize($black-color, 0.75);
+
+    > * {
+      color: lighten($blue-color, 43%);
+    }
+
+    h1 {
+      font-family: var(--font-stack-lora);
+      text-transform: uppercase;
+      margin-block-end: $base-margin * 0.75;
+      font-size: $base-font-size * 1.9;
+    }
+
+    p {
+      text-decoration: underline 1px wavy currentColor;
+      text-underline-offset: 3px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .user__form {
+    inline-size: 25rem;
+    max-inline-size: 94%;
+    margin-inline: auto;
+    background-color: $white-color;
+    padding: $base-padding * 2;
+    border-radius: $base-border-radius * 0.25;
+    box-shadow: 2px 2px 20px transparentize($black-color, $amount: 0.9);
+
+    button {
+      font-size: $base-font-size * 1.05;
+    }
+  }
+
+  .form__group {
+    margin-block-end: $base-margin;
+    @include flex(flex-start, $dir: column);
+
+    label {
+      color: lighten(desaturate($red-color, 20%), 10%);
+      font-weight: map-get($font-weights, medium);
+      font-size: $base-font-size * 1.05;
+    }
+
+    input,
+    select {
+      padding: $base-padding;
+      font-family: var(--font-stack-poppins);
+      font-size: inherit;
+    }
+  }
+
+  > *:last-child {
+    font-family: var(--font-stack-lora);
+    align-self: flex-end;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: map-get($font-weights, bold);
+  }
+}
+
+// * ------------ INSTRUCTIONS CONTAINER STYLING ------------ * //
+.instructions {
+  &--wrapper {
+    @include flex(center, center);
+    display: none;
+    position: fixed;
+    inset: 0;
+  }
+
+  &__bg--layer {
+    background-color: transparentize($black-color, 0.4);
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+  }
+
+  &__list {
+    inline-size: 32rem;
+    max-inline-size: 95%;
+    margin-inline: auto;
+    background-color: lighten($blue-color, 45%);
+    padding: $base-padding * 4 $base-padding * 2;
+    border-radius: $base-border-radius * 0.2;
+    position: relative;
+    box-shadow: 0 0 20px transparentize($black-color, $amount: 0.6);
+
+    button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background-color: transparent;
+      border: none;
+      padding: $base-padding * 0.25;
+      font-weight: map-get($font-weights, semi);
+      font-size: $base-font-size * 1.1;
+      color: darken(desaturate($blue-color, 25%), 35%);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    h2 {
+      color: lighten(desaturate($red-color, 10%), 10%);
+      margin-block-end: $base-margin * 3;
+      text-decoration: underline 2px wavy currentColor;
+      text-underline-offset: 1px;
+    }
+
+    p {
+      margin-block-end: $base-margin * 0.75;
+      color: darken(desaturate($blue-color, 25%), 35%);
+      font-family: var(--font-stack-poppins);
+    }
+
+    h4 {
+      color: darken(desaturate($blue-color, 5%), 25%);
+      margin-block-start: $base-margin * 2;
+      font-size: $base-font-size * 1.1;
+    }
+  }
+}
+
+// * ------------------- Questions Container ------------------- * //
+.questions--container {
+  display: none;
+
+  .quiz__heading {
+    background-color: darken(desaturate($blue-color, 25%), 35%);
+    align-self: stretch;
+    padding: $base-padding * 2;
+    @include flex(space-between);
+    box-shadow: 0 2px 1px transparentize($black-color, 0.75);
+
+    > * {
+      color: lighten($blue-color, 43%);
+    }
+
+    p {
+      font-family: var(--font-stack-poppins);
+      font-size: $base-font-size * 1.1;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .question__wrapper {
+    inline-size: 450px;
+    max-inline-size: 96%;
+    margin-inline: auto;
+    background-color: $white-color;
+    padding: $base-padding * 3;
+    border-radius: $base-border-radius * 0.25;
+    box-shadow: 2px 2px 20px transparentize($black-color, $amount: 0.9);
+    font-family: var(--font-stack-poppins);
+
+    .question {
+      font-size: $base-font-size * 1.2;
+      color: lighten(desaturate($red-color, 20%), 10%);
+      margin-block-end: $base-margin;
+      font-weight: map-get($font-weights, medium);
+    }
+
+    .options {
+      @include flex(flex-start, flex-start, column, $gap: $base-margin * 0.5);
+
+      label {
+        color: darken(desaturate($blue-color, 15%), 15%);
+      }
+    }
+
+    .next__btn {
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .timer__wrapper {
+    align-self: flex-end;
+    background-color: lighten($cyan-color, 23%);
+    padding: $base-padding;
+    font-weight: map-get($font-weights, medium);
+
+    p:only-child {
+      font-size: $base-font-size * 1.05;
+      color: darken(desaturate($blue-color, 15%), 20%);
+    }
+  }
+}
+
+// * Styling of Score Container
+.score--container {
+  display: none;
+  h2 {
+    padding: $base-padding * 2;
+    text-align: center;
+    box-shadow: 0 2px 1px transparentize($black-color, 0.75);
+    background-color: darken(desaturate($blue-color, 25%), 35%);
+    font-family: var(--font-stack-lora);
+    text-transform: uppercase;
+    color: lighten($blue-color, 43%);
+  }
+
+  .user__score--details {
+    > div {
+      padding: $base-padding * 2;
+      font-family: var(--font-stack-poppins);
+
+      h4 {
+        color: lighten(desaturate($red-color, 10%), 10%);
+        letter-spacing: 0.5px;
+        margin-block-end: $base-margin;
+        font-weight: map-get($font-weights, medium);
+      }
+
+      p {
+        font-size: $base-font-size * 0.9;
+        line-height: $base-lh * 0.9;
+
+        span:first-child {
+          font-weight: map-get($font-weights, medium);
+        }
+
+        span:last-child {
+          color: darken($blue-color, 30%);
+        }
+      }
+
+      p:first-of-type span:first-child {
+        color: darken($blue-color, 10%);
+      }
+      p:last-of-type span:first-child {
+        color: adjust-hue($green-color, -20deg);
+      }
+    }
+
+    > div:nth-child(even) {
+      background-color: lighten($blue-color, 45%);
+    }
+    > div:nth-child(odd) {
+      background-color: lighten($yellow-color, 75%);
+    }
+  }
+
+  .restart__btn {
+    margin: $base-margin * 2;
+    padding: $base-padding * 1.75 $base-padding * 6;
+    background-color: darken(desaturate($blue-color, 25%), 35%);
+
+    &:hover {
+      background-color: lighten(desaturate($red-color, 20%), 5%);
+    }
+  }
+}

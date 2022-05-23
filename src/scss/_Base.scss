@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Lora:ital,wght@0,600;0,700;1,700&family=Poppins:wght@400;500&display=swap");
+
+html {
+  font-size: 75%;
+  box-sizing: border-box;
+  min-block-size: 100vh;
+  scrollbar-width: thin;
+  scrollbar-color: darken(desaturate($blue-color, 35%), 15%) $white-color;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --font-stack-poppins: "Poppins", sans-serif;
+  --font-stack-heebo: "Heebo", sans-serif;
+  --font-stack-lora: "Lora", sans-serif;
+}
+
+@media (prefers-reduced-motion) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media screen and (min-width: 769px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media screen and (min-width: 1261px) {
+  html {
+    font-size: 110%;
+  }
+}
